@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- The portfolio lives in `src/portfolio/` and must not import TanStack Router: it is rendered both by `src/routes/index.tsx` and by the plain React GitHub Pages entry (`github-pages/main.tsx`, built with `vite.pages.config.ts`) so one codebase serves both.
+- Reference files in `public/` through `asset()` from `src/portfolio/media.ts`, never with a leading `/`: GitHub Pages serves the site from a `/<repo>/` sub-path.
+- Project demo videos accept either a `public/` file path or a full URL (mp4, YouTube, Vimeo); `resolveVideoSource()` decides how to render them.
